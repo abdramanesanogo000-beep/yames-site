@@ -1,0 +1,495 @@
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2C2C2A;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+/* ===== PALETTE DE COULEURS (référence) =====
+   Bleu principal      : #185FA5
+   Bleu clair (fond)   : #E6F1FB
+   Bleu foncé (texte)  : #0C447C
+   Vert WhatsApp       : #25D366
+   Vert clair (fond)   : #EAF3DE
+   Vert texte          : #3B6D11
+*/
+
+/* ===== NAVIGATION ===== */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #185FA5;
+    padding: 10px 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-left img {
+    height: 80px;
+    display: block;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-center a {
+    color: #E6F1FB;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.nav-center a:hover {
+    background-color: #0C447C;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-right form {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.nav-right form label {
+    display: none;
+}
+
+.nav-right input[type="search"] {
+    border: none;
+    padding: 6px 10px;
+    font-size: 13px;
+    outline: none;
+    width: 160px;
+}
+
+.nav-right form button {
+    border: none;
+    background-color: #ffffff;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-right>a {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #0C447C;
+    padding: 8px 14px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.nav-right>a:hover {
+    background-color: #042C53;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background-color: #E6F1FB;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    color: #0C447C;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #185FA5;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.hero a {
+    display: inline-block;
+    background-color: #185FA5;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.hero a:hover {
+    background-color: #0C447C;
+}
+
+/* ===== CATEGORIES ===== */
+.categories {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.categories h2 {
+    color: #185FA5;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.category-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 25px;
+    font-weight: bold;
+    color: #185FA5;
+    min-width: 140px;
+}
+
+/* ===== PRODUITS POPULAIRES ===== */
+.featured-products {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.featured-products h2 {
+    color: #185FA5;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    background-color: #E6F1FB;
+}
+
+.product-card h3 {
+    font-size: 14px;
+    margin: 10px 0 6px;
+    color: #2C2C2A;
+}
+
+.product-card .price {
+    color: #185FA5;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.btn-add-cart {
+    width: 100%;
+    background-color: #185FA5;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add-cart:hover {
+    background-color: #0C447C;
+}
+
+/* ===== POURQUOI CHOISIR YAMES ===== */
+.why-us {
+    background-color: #EAF3DE;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.why-us h2 {
+    color: #3B6D11;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.why-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.why-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 18px 25px;
+    color: #3B6D11;
+    font-weight: bold;
+    min-width: 160px;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp-cta {
+    text-align: center;
+    padding: 20px;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #185FA5;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    color: #E6F1FB;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.footer-socials a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #B5D4F4;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-center {
+        justify-content: center;
+    }
+
+    .nav-right {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centrage parfait sur la page */
+.bientot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f2937;
+}
+
+/* Boîte de contenu */
+.bientot-content {
+    text-align: center;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Titre */
+.bientot-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #2563eb;
+}
+
+/* Texte descriptif */
+.bientot-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 30px;
+    text-align: center;
+    text-wrap: balance;
+    font-family: "Manrope", sans-serif;
+
+
+}
+
+/* Animation de chargement */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.contact-page {
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    color: #2c2c2a;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.contact-header h1 {
+    color: #185FA5;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.contact-header p {
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-card h2 {
+    color: #185FA5;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #0C447C;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid #cfd8e3;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.contact-form button {
+    background: #185FA5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+    background: #0C447C;
+}
