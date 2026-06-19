@@ -2,25 +2,234 @@
 // 1. DONNÉES PRODUITS (source unique pour tout le site)
 // ===========================================
 const produits = [
-    { id: 1, nom: "Tensiomètre numérique", prix: 15000, image: "paysage8.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
-    { id: 2, nom: "Thermomètre infrarouge", prix: 8000, image: "img/thermometre.jpg", categorie: "thermometre", description: "Thermomètre infrarouge sans contact, mesure la température en quelques secondes. Adapté aux enfants comme aux adultes, idéal pour les familles, cliniques et pharmacies." },
-    { id: 3, nom: "Stéthoscope professionnel", prix: 45000, image: "img/stethoscope.jpg", categorie: "clinique", description: "Stéthoscope de qualité professionnelle, double pavillon pour adultes et enfants. Excellente acoustique pour l'auscultation cardiaque et pulmonaire, conçu pour un usage clinique intensif." },
-    { id: 4, nom: "Kit de premiers soins", prix: 22000, image: "img/kit-soins.jpg", categorie: "consommable", description: "Kit complet de premiers soins comprenant pansements, compresses, antiseptique, ciseaux et bandages. Indispensable pour la maison, le bureau, ou le véhicule." },
-    { id: 5, nom: "Tensiomètre manuel", prix: 12000, image: "img/tensiometre-manuel.jpg", categorie: "tensiometre", description: "Tensiomètre manuel à brassard avec stéthoscope intégré. Solution fiable et économique pour la mesure de la pression artérielle en cabinet médical." },
-    { id: 6, nom: "Thermomètre digital", prix: 5000, image: "img/thermometre-digital.jpg", categorie: "thermometre", description: "Thermomètre digital classique, lecture rapide et précise. Compact, résistant et facile à utiliser au quotidien." },
-    { id: 7, nom: "Lit médical", prix: 300000, image: "img/lit-medical.jpg", categorie: "clinique", description: "Lit médical réglable avec barrières de sécurité, idéal pour cliniques, hôpitaux et soins à domicile. Structure robuste et confortable pour le patient." },
-    { id: 8, nom: "Boîte de gants jetables", prix: 8500, image: "img/gants.jpg", categorie: "consommable", description: "Boîte de gants jetables en nitrile, non poudrés, adaptés à un usage médical et hygiénique. Protection fiable pour le personnel soignant et les particuliers." },
-    { id: 9, nom: "Tensiomètre numérique", prix: 15000, image: "img/tensiometre.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
-    { id: 10, nom: "Tensiomètre numérique", prix: 15000, image: "img/tensiometre.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
-    { id: 11, nom: "Tensiomètre numérique", prix: 15000, image: "img/tensiometre.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
-    { id: 12, nom: "Tensiomètre numérique", prix: 15000, image: "img/tensiometre.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
-    { id: 13, nom: "Tensiomètre numérique", prix: 15000, image: "img/tensiometre.jpg", categorie: "tensiometre", description: "Tensiomètre numérique automatique pour bras, idéal pour un usage à domicile ou en clinique. Mesure précise de la pression artérielle et du pouls, écran large et facile à lire, mémoire pour plusieurs utilisateurs." },
+    { id: 1, nom: "Tensiomètre manuel avec stéthoscope", prix: 10000, image: "img/mk01-211c.jpg", categorie: "tensiometre", promo: false, stock: true, description: "Tensiomètre à brassard manuel livré avec stéthoscope monopavillon. Mesure fiable de la pression artérielle sans pile. Idéal pour les cabinets médicaux et pharmacies." },
+    { id: 2, nom: "Tensiomètre électronique automatique", prix: 23000, image: "img/mk01-435.jpg", categorie: "tensiometre", promo: false, stock: true, description: "Tensiomètre numérique automatique pour bras, brassard 22-36 cm. Un appui suffit pour obtenir tension et pouls. Écran large, facile à utiliser à domicile ou en clinique." },
+    { id: 3, nom: "Oxymètre de pouls", prix: 7000, image: "img/mk-x1906.jpg", categorie: "clinique", promo: false, stock: true, description: "Pince oxymètre à poser sur le doigt. Mesure la saturation en oxygène (SpO2) et le pouls en quelques secondes. Compact, sans douleur, indispensable pour le suivi respiratoire." },
+    { id: 4, nom: "Chaise médicale pivotante", prix: 19000, image: "img/mk03-423d.jpg", categorie: "clinique", promo: false, stock: true, description: "Chaise médicale pivotante, hauteur réglable de 44 à 56 cm, assise diamètre 33 cm. Confortable pour un usage prolongé en cabinet médical ou laboratoire." },
+    { id: 5, nom: "Plateau inox carré (instrumentation)", prix: 7000, image: "img/mk03-739.jpg", categorie: "clinique", promo: false, stock: true, description: "Plateau carré en acier inoxydable 304, dimensions 31x24x3,1 cm. Utilisé pour la présentation et la stérilisation des instruments médicaux en cabinet ou clinique." },
+    { id: 6, nom: "Microscope de laboratoire (40x à 1600x)", prix: 262000, image: "img/mk-107bn.jpg", categorie: "clinique", promo: false, stock: true, description: "Microscope optique professionnel, grossissement de 40x à 1600x (objectifs 4X, 10X, 40XS, 100XS). Livré en coffret. Pour laboratoires, cliniques et formations médicales." },
+    { id: 7, nom: "Centrifugeuse avec minuterie (6 tubes)", prix: 62000, image: "img/mk-800d.jpg", categorie: "clinique", promo: false, stock: true, description: "Centrifugeuse de laboratoire avec minuterie, capacité 6 tubes de 20 ml. Pour la séparation rapide des échantillons sanguins et biologiques." },
+    { id: 8, nom: "Centrifugeuse électrique haute vitesse (12 tubes)", prix: 112000, image: "img/mk-lc04a.jpg", categorie: "clinique", promo: false, stock: true, description: "Centrifugeuse électrique 12 tubes de 20 ml, vitesse jusqu'à 4000 tr/min avec affichage digital. Pour laboratoires à fort volume d'analyses. Compatible 110V/220V." },
+    { id: 9, nom: "Agitateur orbital de laboratoire", prix: 90000, image: "img/mk-201bd.jpg", categorie: "clinique", promo: false, stock: true, description: "Agitateur orbital vitesse réglable de 0 à 210 tr/min, minuterie 0-15 min ou mode continu. Pour le mélange homogène d'échantillons biologiques en laboratoire." },
+    { id: 10, nom: "Analyseur d'hémoglobine portable Mission HB", prix: 15000, image: "img/mk-ms01.jpg", categorie: "clinique", promo: false, stock: true, description: "Appareil portable de mesure du taux d'hémoglobine. Résultat en 15 secondes à partir de 10 µl de sang, sans réactif liquide. Idéal pour le dépistage rapide de l'anémie." },
+    { id: 11, nom: "Bandelettes Mission HB (boîte de 50)", prix: 24000, image: "img/mk-ms01s.jpg", categorie: "consommable", promo: false, stock: true, description: "Boîte de 50 bandelettes pour analyseur d'hémoglobine Mission HB. Pour un dépistage rapide et fiable du taux d'hémoglobine en clinique ou laboratoire." },
+    { id: 12, nom: "Analyseur d'hémoglobine URIT H12", prix: 38000, image: "img/mk-urith12.jpg", categorie: "clinique", promo: false, stock: true, description: "Appareil de mesure du taux d'hémoglobine URIT H12, précis et fiable. Conçu pour un usage régulier en clinique ou laboratoire d'analyses médicales." },
+    { id: 13, nom: "Bandelettes URIT H12 (boîte de 50)", prix: 14000, image: "img/mk-h12.jpg", categorie: "consommable", promo: false, stock: true, description: "Boîte de 50 bandelettes compatibles avec l'analyseur URIT H12. Pour mesurer rapidement le taux d'hémoglobine en laboratoire ou en clinique." },
+    { id: 14, nom: "Bandelettes urinaires 10 paramètres (URS-10A)", prix: 5000, image: "img/mk08-536-10a.jpg", categorie: "consommable", promo: false, stock: true, description: "Bandelettes réactives pour analyse d'urine, 10 paramètres (glucose, protéines, pH, sang, leucocytes...). Résultat rapide pour le dépistage en clinique ou pharmacie." },
+    { id: 15, nom: "Bandelettes urinaires 3 paramètres (URS-3T)", prix: 3000, image: "img/mk08-536-3t.jpg", categorie: "consommable", promo: false, stock: true, description: "Bandelettes réactives pour analyse d'urine, 3 paramètres essentiels. Solution économique pour un dépistage rapide en cabinet médical ou pharmacie." },
+    { id: 16, nom: "Pèse-personne mécanique médical", prix: 23500, image: "img/mk07-107.jpg", categorie: "clinique", promo: false, stock: true, description: "Balance mécanique pour cabinet médical (28,5x42,5x8,5 cm). Robuste, précise, sans pile nécessaire. Vendue par lot de 3 unités." },
+    { id: 17, nom: "Pèse-bébé avec toise intégrée", prix: 88000, image: "img/mk07-196b.jpg", categorie: "clinique", promo: false, stock: true, description: "Balance pour nourrisson avec toise intégrée, capacité 20 kg, précision 10 g. Indispensable pour le suivi de croissance en pédiatrie, maternité ou centre de santé." },
+    { id: 18, nom: "Toise souple bébé (PVC)", prix: 15000, image: "img/mk07-202.jpg", categorie: "consommable", promo: false, stock: true, description: "Mètre ruban souple en PVC pour mesurer la taille des nourrissons, de 20 à 99 cm. Léger, facile à désinfecter, idéal pour le suivi pédiatrique." },
+    { id: 19, nom: "Attelle de nuit (S/M/L)", prix: 11000, image: "img/mk07-835c.jpg", categorie: "clinique", promo: false, stock: true, description: "Attelle orthopédique de nuit disponible en tailles S, M et L. Maintien et immobilisation du pied pendant le repos pour une rééducation confortable." },
+    { id: 20, nom: "Abaisse-langue en bois (boîte de 50)", prix: 1500, image: "img/mk08-422.jpg", categorie: "consommable", promo: false, stock: true, description: "Boîte de 50 abaisse-langues en bois (150x18x1,6 mm). Consommable à usage unique pour consultations en cabinet, clinique ou pharmacie." },
+    { id: 21, nom: "Kit de pinces chirurgicales (10 pièces)", prix: 28000, image: "img/mk-s34.jpg", categorie: "clinique", promo: false, stock: true, description: "Set de 10 pinces chirurgicales pour soins et interventions en clinique. Outils essentiels pour tout bloc de soins ou salle d'opération." },
+    { id: 22, nom: "Lames de bistouri n°23 (boîte de 100)", prix: 4000, image: "img/mk08-509.jpg", categorie: "consommable", promo: false, stock: true, description: "Boîte de 100 lames de bistouri en acier carbone, taille n°23. Stériles, à usage unique, pour interventions chirurgicales et soins en clinique." },
+    { id: 23, nom: "Ballon de réanimation pédiatrique", prix: 12000, image: "img/mk09-139-ped.jpg", categorie: "clinique", promo: false, stock: true, description: "Ballon auto-gonflable (BAVU) en PVC, taille pédiatrique, livré en coffret. Matériel d'urgence pour la ventilation manuelle des enfants en détresse respiratoire." },
+    { id: 24, nom: "Ballon de réanimation adulte", prix: 12000, image: "img/mk09-139-adu.jpg", categorie: "clinique", promo: false, stock: true, description: "Ballon auto-gonflable (BAVU) en PVC, taille adulte, livré en coffret. Indispensable pour la ventilation manuelle en réanimation et premiers secours." },
+    { id: 25, nom: "Tambour de stérilisation 170mm", prix: 9000, image: "img/mk03-720-170.jpg", categorie: "clinique", promo: false, stock: true, description: "Tambour métallique de stérilisation, diamètre 170 mm. Pour le stockage stérile de compresses et consommables médicaux en clinique ou bloc opératoire." },
+    { id: 26, nom: "Tambour de stérilisation 200mm", prix: 11000, image: "img/mk03-720-200.jpg", categorie: "clinique", promo: false, stock: true, description: "Tambour métallique de stérilisation, diamètre 200 mm. Format plus grand pour un stockage stérile en volume en clinique ou bloc opératoire." },
+    { id: 27, nom: "Portoir à tubes à essai (50 puits)", prix: 3000, image: "img/mk09-575.jpg", categorie: "clinique", promo: false, stock: true, description: "Râtelier pour tubes à essai de 12-13 mm, 50 emplacements. Pour une organisation rapide et sécurisée des échantillons en laboratoire d'analyses." },
+    { id: 28, nom: "Coton hydrophile (rouleau 100g)", prix: 1000, image: "img/mk08-402.jpg", categorie: "consommable", promo: false, stock: true, description: "Rouleau de coton hydrophile 100g (format 6x15). Consommable essentiel pour soins, pansements et désinfection en clinique, pharmacie ou à domicile." },
+    { id: 29, nom: "Test rapide Toxoplasmose", prix: 600, image: "img/mk08-540-toxo.jpg", categorie: "consommable", promo: false, stock: true, description: "Test de dépistage rapide de la toxoplasmose sur sang total, sérum ou plasma. Résultat en quelques minutes, sans équipement spécial. Pour cliniques et laboratoires." },
+    { id: 30, nom: "Test rapide Rubéole IgG/IgM", prix: 700, image: "img/mk08-540-rubelle.jpg", categorie: "consommable", promo: false, stock: true, description: "Test de dépistage rapide de la rubéole (IgG et IgM) sur sérum ou plasma. Outil de diagnostic essentiel pour le suivi prénatal et les cliniques." },
+    { id: 31, nom: "Test rapide Paludisme PF/PV", prix: 600, image: "img/mk08-540-malaria.jpg", categorie: "consommable", promo: false, stock: true, description: "Test de dépistage rapide du paludisme (Plasmodium falciparum et vivax) sur sang total. Résultat fiable en minutes, adapté au contexte malien." },
+    { id: 32, nom: "Mannequin pédagogique d'accouchement", prix: 490000, image: "img/mk-xc402a.jpg", categorie: "clinique", promo: false, stock: true, description: "Modèle anatomique de simulation pour la formation aux techniques d'accouchement. Destiné aux écoles de santé, centres de formation de sages-femmes et structures médicales." },
+
 ];
 
 // ===========================================
 // 2. AFFICHAGE DES PRODUITS (accueil / catalogue)
 // ===========================================
 const PRODUITS_PAR_PAGE = 12;
+const PROMO_CODE = "YAMES5";
+const PROMO_PERCENT = 5;
+const PROMO_VALID_DAYS = 14;
+const PROMO_APPLIED_KEY = "couponApplique";
+const PROMO_USAGE_KEY = "couponUsage";
+const PROMO_POPUP_KEY = "promoPopupSeen";
+let lastCouponFeedback = { message: "", type: "" };
+
+const promoEndDate = new Date();
+promoEndDate.setDate(promoEndDate.getDate() + PROMO_VALID_DAYS);
+
+function isPromoActive() {
+    return new Date() <= promoEndDate;
+}
+
+function getPromoMessage() {
+    return `Livraison gratuite + ${PROMO_PERCENT}% de réduction avec le code ${PROMO_CODE}`;
+}
+
+function getClientCouponKey() {
+    const utilisateur = getUtilisateurConnecte();
+    if (utilisateur && utilisateur.email) {
+        return utilisateur.email;
+    }
+
+    let deviceKey = localStorage.getItem("couponDeviceKey");
+    if (!deviceKey) {
+        deviceKey = `guest-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`;
+        localStorage.setItem("couponDeviceKey", deviceKey);
+    }
+    return deviceKey;
+}
+
+function getCouponUsageMap() {
+    const raw = localStorage.getItem(PROMO_USAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+}
+
+function setCouponUsageMap(data) {
+    localStorage.setItem(PROMO_USAGE_KEY, JSON.stringify(data));
+}
+
+function isCouponAlreadyUsed() {
+    const usage = getCouponUsageMap();
+    return usage[getClientCouponKey()] === true;
+}
+
+function markCouponAsUsed() {
+    const usage = getCouponUsageMap();
+    usage[getClientCouponKey()] = true;
+    setCouponUsageMap(usage);
+}
+
+function getAppliedCoupon() {
+    return localStorage.getItem(PROMO_APPLIED_KEY) || "";
+}
+
+function setAppliedCoupon(code) {
+    localStorage.setItem(PROMO_APPLIED_KEY, code.toUpperCase());
+}
+
+function clearAppliedCoupon() {
+    localStorage.removeItem(PROMO_APPLIED_KEY);
+}
+
+function setCouponFeedback(message, type = "info") {
+    lastCouponFeedback = { message, type };
+}
+
+function applyCoupon(code) {
+    const normalizedCode = code.trim().toUpperCase();
+
+    if (!normalizedCode) {
+        setCouponFeedback("Veuillez saisir un code promo.", "error");
+        clearAppliedCoupon();
+        return { success: false, message: "Veuillez saisir un code promo." };
+    }
+
+    if (!isPromoActive()) {
+        setCouponFeedback("La promotion est terminée.", "error");
+        clearAppliedCoupon();
+        return { success: false, message: "La promotion est terminée." };
+    }
+
+    if (normalizedCode !== PROMO_CODE) {
+        setCouponFeedback("Ce code promo n'existe pas.", "error");
+        clearAppliedCoupon();
+        return { success: false, message: "Ce code promo n'existe pas." };
+    }
+
+    if (isCouponAlreadyUsed()) {
+        setCouponFeedback("Ce code a déjà été utilisé pour votre compte ou appareil.", "error");
+        clearAppliedCoupon();
+        return { success: false, message: "Ce code a déjà été utilisé pour votre compte ou appareil." };
+    }
+
+    setAppliedCoupon(normalizedCode);
+    setCouponFeedback(`Code ${normalizedCode} appliqué avec succès ! Réduction de ${PROMO_PERCENT}%.`, "success");
+
+    return {
+        success: true,
+        message: `Code ${normalizedCode} appliqué avec succès ! Réduction de ${PROMO_PERCENT}%.`
+    };
+}
+
+function getPanierSubtotal() {
+    const panier = getPanier();
+    let subtotal = 0;
+
+    panier.forEach(item => {
+        const produit = produits.find(p => p.id === item.id);
+        if (produit) {
+            subtotal += produit.prix * item.quantite;
+        }
+    });
+
+    return subtotal;
+}
+
+function getCartTotals() {
+    const subtotal = getPanierSubtotal();
+    const couponApplied = getAppliedCoupon() === PROMO_CODE && isPromoActive();
+    const discount = couponApplied ? Math.floor(subtotal * PROMO_PERCENT / 100) : 0;
+    const total = Math.max(0, subtotal - discount);
+
+    return {
+        subtotal,
+        discount,
+        shipping: couponApplied ? 0 : "À calculer",
+        total,
+        couponApplied
+    };
+}
+
+function createPromoBanner() {
+    if (document.getElementById("promo-banner")) return;
+
+    const banner = document.createElement("div");
+    banner.id = "promo-banner";
+    banner.innerHTML = `
+        <span>🎉 ${getPromoMessage()} · Offre valable 2 semaines</span>
+        <button id="promo-banner-close" aria-label="Fermer la promotion">✕</button>
+    `;
+    document.body.prepend(banner);
+
+    const closeButton = document.getElementById("promo-banner-close");
+    if (closeButton) {
+        closeButton.addEventListener("click", () => banner.remove());
+    }
+}
+
+function createPromoPopup() {
+    if (document.getElementById("promo-popup-overlay") || localStorage.getItem(PROMO_POPUP_KEY) === "true") return;
+
+    const overlay = document.createElement("div");
+    overlay.id = "promo-popup-overlay";
+    overlay.className = "promo-popup-overlay";
+
+    overlay.innerHTML = `
+        <div class="promo-popup">
+            <button class="promo-popup-close" aria-label="Fermer la promotion">✕</button>
+            <p class="promo-popup-label">Promotion spéciale</p>
+            <h3>${getPromoMessage()}</h3>
+            <p>Utilisez le code <strong>${PROMO_CODE}</strong> pour obtenir 5% de réduction et une livraison gratuite. Cette offre est valable pour les 2 prochaines semaines.</p>
+            <button class="promo-popup-btn">J’ai compris</button>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const closeBtn = overlay.querySelector(".promo-popup-close");
+    const confirmBtn = overlay.querySelector(".promo-popup-btn");
+
+    const closePopup = () => {
+        overlay.remove();
+        localStorage.setItem(PROMO_POPUP_KEY, "true");
+    };
+
+    closeBtn.addEventListener("click", closePopup);
+    confirmBtn.addEventListener("click", closePopup);
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closePopup();
+    });
+}
+
+function initPromoSystem() {
+    createPromoBanner();
+    createPromoPopup();
+}
 
 function afficherProduits(listeProduits, limite = null, page = 1) {
     const container = document.getElementById("product-container");
@@ -117,7 +326,7 @@ let pageActuelleCatalogue = 1;
 // Change de page et réaffiche les produits avec les filtres actuels
 function changerPage(nouvellePage) {
     pageActuelleCatalogue = nouvellePage;
-    appliquerFiltres();
+    appliquerFiltres(false);
 
     // remonte en haut de la grille pour le confort de lecture
     document.getElementById("product-container").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -126,15 +335,23 @@ function changerPage(nouvellePage) {
 // ===========================================
 // 3. FILTRES & TRI (catalogue uniquement)
 // ===========================================
-function appliquerFiltres() {
-    function appliquerFiltresEtResetPage() {
+function normaliserTexte(texte) {
+    return texte
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+function appliquerFiltres(reinitialiserPage = false) {
+    if (reinitialiserPage) {
         pageActuelleCatalogue = 1;
-        appliquerFiltres();
     }
+
     let resultat = [...produits];
 
-    const rechercheInput = document.getElementById("recherche-nom");
-    const texteRecherche = rechercheInput ? rechercheInput.value.trim().toLowerCase() : "";
+    const rechercheInput = document.getElementById("recherche-nom") || document.getElementById("search-input");
+    const texteRecherche = rechercheInput ? normaliserTexte(rechercheInput.value) : "";
 
     if (texteRecherche !== "") {
         resultat = resultat
@@ -152,17 +369,39 @@ function appliquerFiltres() {
         resultat = resultat.filter(produit => categoriesCochees.includes(produit.categorie));
     }
 
+    const filtreProduitActif = document.querySelector(".filter-box-btn.active")?.dataset.produitFilter || "tous";
+
+    if (filtreProduitActif === "promo") {
+        resultat = resultat.filter(produit => produit.promo === true);
+    }
+
+    if (filtreProduitActif === "stock") {
+        resultat = resultat.filter(produit => produit.stock !== false);
+    }
+
     const prixMinInput = document.getElementById("prix-min");
     const prixMaxInput = document.getElementById("prix-max");
 
     const prixMin = prixMinInput && prixMinInput.value !== "" ? Number(prixMinInput.value) : null;
     const prixMax = prixMaxInput && prixMaxInput.value !== "" ? Number(prixMaxInput.value) : null;
 
+    const prixMinAutorise = Math.min(...resultat.map(p => p.prix));
+    const prixMaxAutorise = Math.max(...resultat.map(p => p.prix));
+
     if (prixMin !== null) {
-        resultat = resultat.filter(produit => produit.prix >= prixMin);
+        const minValide = Math.max(prixMinAutorise, prixMin);
+        if (minValide !== prixMin) {
+            if (prixMinInput) prixMinInput.value = String(minValide);
+        }
+        resultat = resultat.filter(produit => produit.prix >= minValide);
     }
+
     if (prixMax !== null) {
-        resultat = resultat.filter(produit => produit.prix <= prixMax);
+        const maxValide = Math.min(prixMaxAutorise, prixMax);
+        if (maxValide !== prixMax) {
+            if (prixMaxInput) prixMaxInput.value = String(maxValide);
+        }
+        resultat = resultat.filter(produit => produit.prix <= maxValide);
     }
 
     const triSelect = document.getElementById("tri-select");
@@ -181,7 +420,7 @@ function appliquerFiltres() {
 
 function reinitialiserFiltres() {
     pageActuelleCatalogue = 1;
-    const rechercheInput = document.getElementById("recherche-nom");
+    const rechercheInput = document.getElementById("recherche-nom") || document.getElementById("search-input");
     if (rechercheInput) rechercheInput.value = "";
 
     document.querySelectorAll(".filter-categorie").forEach(checkbox => checkbox.checked = false);
@@ -193,6 +432,12 @@ function reinitialiserFiltres() {
 
     const triSelect = document.getElementById("tri-select");
     if (triSelect) triSelect.value = "defaut";
+
+    document.querySelectorAll(".filter-box-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+    const btnTous = document.querySelector('.filter-box-btn[data-produit-filter="tous"]');
+    if (btnTous) btnTous.classList.add("active");
 
     afficherProduits(produits);
 }
@@ -275,18 +520,52 @@ function retirerDuPanier(idProduit) {
     mettreAJourCompteurPanier();
 }
 
+function mettreAJourResumePanier() {
+    const couponMessage = document.getElementById("coupon-message");
+    const totalAmount = document.getElementById("total-amount");
+    const subtotalAmount = document.getElementById("subtotal-amount");
+    const discountAmount = document.getElementById("discount-amount");
+    const shippingAmount = document.getElementById("shipping-amount");
+
+    const totals = getCartTotals();
+
+    if (subtotalAmount) subtotalAmount.textContent = totals.subtotal.toLocaleString() + " FCFA";
+    if (discountAmount) {
+        discountAmount.textContent = totals.discount > 0 ? `-${totals.discount.toLocaleString()} FCFA` : "0 FCFA";
+    }
+    if (shippingAmount) {
+        shippingAmount.textContent = totals.couponApplied ? "Gratuite" : "À calculer";
+    }
+    if (totalAmount) totalAmount.textContent = totals.total.toLocaleString() + " FCFA";
+
+    if (couponMessage) {
+        if (lastCouponFeedback.message) {
+            couponMessage.textContent = lastCouponFeedback.message;
+            couponMessage.className = "coupon-message " + (lastCouponFeedback.type === "success" ? "success" : "error");
+        } else if (totals.couponApplied) {
+            couponMessage.textContent = `Code ${PROMO_CODE} appliqué : ${PROMO_PERCENT}% de réduction + livraison gratuite.`;
+            couponMessage.className = "coupon-message success";
+        } else if (!isPromoActive()) {
+            couponMessage.textContent = "La promotion est terminée.";
+            couponMessage.className = "coupon-message error";
+        } else {
+            couponMessage.textContent = `${getPromoMessage()} · Le code est valable 2 semaines.`;
+            couponMessage.className = "coupon-message";
+        }
+    }
+}
+
 function afficherPanier() {
     const container = document.getElementById("panier-container");
     if (!container) return;
 
     const panier = getPanier();
-    const totalAmount = document.getElementById("total-amount");
 
     container.innerHTML = "";
 
     if (panier.length === 0) {
         container.innerHTML = "<p class='panier-vide'>Votre panier est vide pour le moment.</p>";
-        if (totalAmount) totalAmount.textContent = "0 FCFA";
+        mettreAJourResumePanier();
         return;
     }
 
@@ -320,7 +599,7 @@ function afficherPanier() {
         container.appendChild(div);
     });
 
-    if (totalAmount) totalAmount.textContent = total.toLocaleString() + " FCFA";
+    mettreAJourResumePanier();
 }
 
 // ===========================================
@@ -359,27 +638,21 @@ function getDetailsPaiement(methode, total) {
 }
 
 function getTotalPanier() {
-    const panier = getPanier();
-    let total = 0;
-    panier.forEach(item => {
-        const produit = produits.find(p => p.id === item.id);
-        if (produit) total += produit.prix * item.quantite;
-    });
-    return total;
+    return getCartTotals().total;
 }
 
 function confirmerCommande(methode) {
     const panier = getPanier();
     if (panier.length === 0) return;
 
+    const totals = getCartTotals();
+    const couponApplique = totals.couponApplied;
     let message = "Bonjour, je confirme ma commande :%0A";
-    let total = 0;
 
     panier.forEach(item => {
         const produit = produits.find(p => p.id === item.id);
         if (!produit) return;
         const sousTotal = produit.prix * item.quantite;
-        total += sousTotal;
         message += `- ${produit.nom} x${item.quantite} (${sousTotal.toLocaleString()} FCFA)%0A`;
     });
 
@@ -390,13 +663,24 @@ function confirmerCommande(methode) {
     };
 
     message += `%0AMode de paiement : ${noms[methode] || methode}`;
-    message += `%0ATotal : ${total.toLocaleString()} FCFA`;
+    if (couponApplique) {
+        message += `%0ACode promo : ${PROMO_CODE}`;
+        message += `%0ARéduction : ${totals.discount.toLocaleString()} FCFA`;
+        message += `%0ALivraison : gratuite`;
+    }
+    message += `%0ATotal : ${totals.total.toLocaleString()} FCFA`;
 
     window.open(`https://wa.me/22372080937?text=${message}`, "_blank");
 
-    enregistrerCommande(panier, methode, total);
+    if (couponApplique) {
+        markCouponAsUsed();
+    }
+
+    enregistrerCommande(panier, methode, totals.total);
 
     savePanier([]);
+    clearAppliedCoupon();
+    setCouponFeedback("", "");
     afficherPanier();
     mettreAJourCompteurPanier();
     document.getElementById("modal-paiement").classList.remove("active");
@@ -428,7 +712,26 @@ function afficherPageProduit() {
             <h1>${produit.nom}</h1>
             <p class="produit-detail-price">${produit.prix.toLocaleString()} FCFA</p>
             <p class="produit-detail-description">${produit.description}</p>
+
             <button class="btn-add-cart" data-id="${produit.id}">Ajouter au panier</button>
+
+            <section class="avantages-yames">
+                <h3>Les Avantages de yames</h3>
+                <div class="avantages-yames-list">
+                    <div class="avantage-item">
+                        <span class="avantage-icon icon-truck"></span>
+                        <span>Livraison rapide</span>
+                    </div>
+                    <div class="avantage-item">
+                        <span class="avantage-icon icon-shield"></span>
+                        <span>Garantie fiable</span>
+                    </div>
+                    <div class="avantage-item">
+                        <span class="avantage-icon icon-check"></span>
+                        <span>Produits certifiés</span>
+                    </div>
+                </div>
+            </section>
         </div>
     `;
 
@@ -486,9 +789,11 @@ function distanceLevenshtein(a, b) {
 
 // Calcule un score de pertinence entre le texte tapé et le nom d'un produit
 // Plus le score est élevé, plus le produit est pertinent
+// Calcule un score de pertinence entre le texte tapé et le nom d'un produit
+// Plus le score est élevé, plus le produit est pertinent. 0 = on élimine.
 function scorePertinence(texte, nomProduit) {
-    const t = texte.toLowerCase().trim();
-    const nom = nomProduit.toLowerCase();
+    const t = normaliserTexte(texte);
+    const nom = normaliserTexte(nomProduit);
 
     if (t === "") return 0;
 
@@ -499,26 +804,28 @@ function scorePertinence(texte, nomProduit) {
     if (nom.startsWith(t)) return 90;
 
     // 3. un des mots du nom commence par le texte tapé
-    const mots = nom.split(" ");
+    const mots = nom.split(/\s+/);
     if (mots.some(mot => mot.startsWith(t))) return 80;
 
-    // 4. le texte tapé apparaît n'importe où dans le nom
+    // 4. le texte tapé apparaît n'importe où dans le nom (mot collé, ex: "metre")
     if (nom.includes(t)) return 70;
 
-    // 5. tolérance aux fautes de frappe (distance de Levenshtein)
-    // on compare le texte tapé au mot le plus proche du nom
-    let meilleureDistance = Infinity;
-    mots.forEach(mot => {
-        const dist = distanceLevenshtein(t, mot.slice(0, t.length + 2));
-        if (dist < meilleureDistance) meilleureDistance = dist;
-    });
+    // 5. tolérance aux fautes de frappe — seulement si le texte tapé est assez long
+    // (sinon "te" ou "th" matcherait n'importe quoi par hasard)
+    if (t.length >= 3) {
+        let meilleureDistance = Infinity;
 
-    // on accepte seulement si la faute de frappe est "raisonnable"
-    // (max 2 caractères de différence pour des mots courts, 3 pour les longs)
-    const seuil = t.length <= 4 ? 1 : t.length <= 7 ? 2 : 3;
+        mots.forEach(mot => {
+            const dist = distanceLevenshtein(t, mot);
+            if (dist < meilleureDistance) meilleureDistance = dist;
+        });
 
-    if (meilleureDistance <= seuil) {
-        return 60 - meilleureDistance * 10; // 50, 40 ou 30 selon la distance
+        // tolérance stricte : 1 erreur pour 4-6 lettres, 2 erreurs max au-delà
+        const seuil = t.length <= 6 ? 1 : 2;
+
+        if (meilleureDistance <= seuil) {
+            return Math.max(20, 50 - meilleureDistance * 10);
+        }
     }
 
     // aucune correspondance acceptable
@@ -807,6 +1114,8 @@ function enregistrerCommande(panier, methode, total) {
 // ===========================================
 document.addEventListener("DOMContentLoaded", () => {
 
+    initPromoSystem();
+
     const container = document.getElementById("product-container");
 
     const estAccueil = container && container.closest(".featured-products");
@@ -822,11 +1131,12 @@ document.addEventListener("DOMContentLoaded", () => {
     afficherPageCompte();
 
     // --- Filtres catalogue ---
-    const rechercheNom = document.getElementById("recherche-nom");
+    const rechercheNom = document.getElementById("recherche-nom") || document.getElementById("search-input");
     const filtresCategorie = document.querySelectorAll(".filter-categorie");
     const prixMin = document.getElementById("prix-min");
     const prixMax = document.getElementById("prix-max");
     const triSelect = document.getElementById("tri-select");
+    const produitFilterButtons = document.querySelectorAll(".filter-box-btn");
     const resetBtn = document.getElementById("reset-filtres");
 
     if (rechercheNom) {
@@ -834,19 +1144,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const q = params.get("q");
         if (q) {
             rechercheNom.value = q;
-            appliquerFiltres();
+            appliquerFiltres(true);
         }
 
-        rechercheNom.addEventListener("input", appliquerFiltres);
+        rechercheNom.addEventListener("input", () => appliquerFiltres(true));
     }
 
     filtresCategorie.forEach(checkbox => {
-        checkbox.addEventListener("change", appliquerFiltres);
+        checkbox.addEventListener("change", () => appliquerFiltres(true));
     });
 
-    if (prixMin) prixMin.addEventListener("input", appliquerFiltres);
-    if (prixMax) prixMax.addEventListener("input", appliquerFiltres);
-    if (triSelect) triSelect.addEventListener("change", appliquerFiltres);
+    if (prixMin) prixMin.addEventListener("input", () => appliquerFiltres(true));
+    if (prixMax) prixMax.addEventListener("input", () => appliquerFiltres(true));
+    if (triSelect) triSelect.addEventListener("change", () => appliquerFiltres(false));
+    produitFilterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            produitFilterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            appliquerFiltres();
+        });
+    });
     if (resetBtn) resetBtn.addEventListener("click", reinitialiserFiltres);
 
     // --- Clics globaux (ajout panier, +/-, suppression) ---
@@ -927,5 +1244,32 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    const couponInput = document.getElementById("coupon-input");
+    const couponButton = document.getElementById("coupon-button");
+    const couponMessage = document.getElementById("coupon-message");
+
+    if (couponButton && couponInput) {
+        couponButton.addEventListener("click", () => {
+            const resultat = applyCoupon(couponInput.value);
+            lastCouponFeedback = {
+                message: resultat.message,
+                type: resultat.success ? "success" : "error"
+            };
+            if (!resultat.success) {
+                clearAppliedCoupon();
+            }
+            afficherPanier();
+        });
+    }
+
+    if (couponInput) {
+        couponInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                couponButton?.click();
+            }
+        });
+    }
 
 });

@@ -13,6 +13,86 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 0;
+}
+
+#promo-banner {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(90deg, #0C447C, #185FA5, #25D366);
+    color: #fff;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#promo-banner button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.promo-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.promo-popup {
+    position: relative;
+    width: min(460px, 92vw);
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 22px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.promo-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+}
+
+.promo-popup-label {
+    color: #185FA5;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.promo-popup h3 {
+    color: #0C447C;
+    margin: 6px 0 10px;
+}
+
+.promo-popup-btn {
+    background: #185FA5;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 12px;
 }
 
 main {
@@ -178,7 +258,9 @@ nav {
 
 /* ===== HERO ===== */
 .hero {
-    background-color: #E6F1FB;
+    background:
+        linear-gradient(rgba(230, 241, 251, 0.50), rgba(230, 241, 251, 0.55)),
+        url("pexels-pavel-danilyuk-7108110.jpg") center/cover no-repeat;
     text-align: center;
     padding: 50px 20px;
 }
@@ -608,12 +690,68 @@ footer p {
     cursor: pointer;
 }
 
+.filter-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 10px 12px;
+    border: 1px solid #c7d9b7;
+    border-radius: 8px;
+    background: #f7fbf1;
+    color: #3B6D11;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-box input {
+    display: none;
+}
+
+.filter-box:has(input:checked) {
+    background: #d9ecbf;
+    border-color: #6ea53a;
+}
+
+.filter-product-boxes {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-box-btn {
+    border: 1px solid #c7d9b7;
+    background: #f7fbf1;
+    color: #3B6D11;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-box-btn.active {
+    background: #d9ecbf;
+    border-color: #6ea53a;
+}
+
 .filter-group input[type="number"] {
     width: 70px;
     padding: 4px 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 13px;
+    -moz-appearance: textfield;
+}
+
+.filter-group input[type="number"]::-webkit-outer-spin-button,
+.filter-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .filter-group select {
@@ -1222,7 +1360,7 @@ img {
     background-color: #E6F1FB;
     padding: 15px 20px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .total-label {
@@ -1234,6 +1372,79 @@ img {
 .total-amount {
     font-size: 20px;
     font-weight: bold;
+    color: #185FA5;
+}
+
+.coupon-section {
+    background: #fff;
+    border: 1px solid #d7e6f9;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.coupon-section label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0C447C;
+    margin-bottom: 8px;
+}
+
+.coupon-row {
+    display: flex;
+    gap: 10px;
+}
+
+.coupon-row input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cddbf5;
+    border-radius: 6px;
+    outline: none;
+}
+
+.coupon-row button {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.coupon-message {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #185FA5;
+}
+
+.coupon-message.success {
+    color: #1f7a1f;
+}
+
+.coupon-message.error {
+    color: #c0392b;
+}
+
+.panier-summary {
+    background: #f9fbff;
+    border: 1px dashed #b7cde9;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.panier-summary div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #2C2C2A;
+}
+
+.panier-summary strong {
     color: #185FA5;
 }
 
@@ -1580,6 +1791,58 @@ img {
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 20px;
+}
+
+.avantages-yames {
+    margin: 18px 0 0;
+    padding: 12px 0 0;
+}
+
+.avantages-yames h3 {
+    color: #185FA5;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.avantages-yames-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.avantage-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #2C2C2A;
+    background: #f7faff;
+    border: 1px solid #dfeeff;
+    border-radius: 999px;
+    padding: 6px 10px;
+}
+
+.avantage-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+.icon-truck {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23185FA5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7h11v9H3z'/%3E%3Cpath d='M14 10h4l3 3v3h-7'/%3E%3Ccircle cx='7.5' cy='18' r='1.5'/%3E%3Ccircle cx='17.5' cy='18' r='1.5'/%3E%3C/svg%3E");
+}
+
+.icon-shield {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23185FA5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l7 3v6c0 4-2.5 7-7 9-4.5-2-7-5-7-9V6l7-3z'/%3E%3C/svg%3E");
+}
+
+.icon-check {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23185FA5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
 }
 
 .produit-detail-info .btn-add-cart {

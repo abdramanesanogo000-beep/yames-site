@@ -49,6 +49,30 @@
                 <span class="total-amount" id="total-amount">0 FCFA</span>
             </div>
 
+            <div class="coupon-section">
+                <label for="coupon-input">Code promo</label>
+                <div class="coupon-row">
+                    <input type="text" id="coupon-input" placeholder="Saisissez votre code">
+                    <button type="button" id="coupon-button">Appliquer</button>
+                </div>
+                <p id="coupon-message" class="coupon-message"></p>
+            </div>
+
+            <div class="panier-summary">
+                <div>
+                    <span>Sous-total</span>
+                    <strong id="subtotal-amount">0 FCFA</strong>
+                </div>
+                <div>
+                    <span>Réduction</span>
+                    <strong id="discount-amount">0 FCFA</strong>
+                </div>
+                <div>
+                    <span>Livraison</span>
+                    <strong id="shipping-amount">À calculer</strong>
+                </div>
+            </div>
+
             <div class="panier-actions">
                 <a href="catalogue.html" class="btn-continue">Continuer mes achats</a>
                 <button id="btn-paiement" class="btn-paiement">Passer au paiement</button>
